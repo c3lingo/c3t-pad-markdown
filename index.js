@@ -16,8 +16,8 @@ const program = require('commander');
 function logExamples() {
 	console.log('  Examples:');
 	console.log('');
-	console.log('     $ curl https://events.ccc.de/congress/2017/Fahrplan/schedule.xml | c3t-pad');
-	console.log('     $ c3t-pad -o myoutdir/ < schedule.xml');
+	console.log('     $ curl https://events.ccc.de/congress/2017/Fahrplan/schedule.xml | c3t-pad-markdown');
+	console.log('     $ c3t-pad-markdown -o myoutdir/ < schedule.xml');
 	console.log('');
 }
 const packageJson = JSON.parse(fs.readFileSync(path.resolve(__dirname, 'package.json')));
@@ -84,7 +84,7 @@ streamToPromise(process.stdin)
 				.sortBy('language')
 				.value()
 
-			const outputPath = path.join(program.outputDir, `day${day.index}.html`);
+			const outputPath = path.join(program.outputDir, `day${day.index}.md`);
 			fs.writeFileSync(outputPath, dayTemplate({ eventsByTime, eventsByLanguage }));
 		})
 

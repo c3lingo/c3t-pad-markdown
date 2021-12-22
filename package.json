@@ -1,32 +1,31 @@
 {
-  "name": "c3t-pad",
+  "name": "c3t-pad-markdown",
   "version": "0.2.2",
-  "description": "Convert Chaos Communication Congress schedule into pads for the translation team",
+  "description": "Convert Chaos Communication Congress schedule into markdown for the translation team",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Philipp Bock <p@philippbock.de> (http://philippbock.de/)",
+  "author": "Philipp Bock <p@philippbock.de> (http://philippbock.de/), Sebastian Lisken (https://sebastian.lisken.net/",
   "license": "MIT",
   "dependencies": {
     "cheerio": "^0.22.0",
     "commander": "^2.9.0",
-    "lodash": "^4.16.6",
+    "lodash": "^4.17.21",
     "stream-to-promise": "^2.2.0"
   },
   "keywords": [
     "translations",
     "ccc",
-    "33c3",
     "schedule",
     "congress",
-    "etherpad"
+    "markdown"
   ],
   "bin": {
-    "c3t-pad": "./index.js"
+    "c3t-pad-markdown": "./index.js"
   },
-	"repository": "pbock/c3t-pad",
+	"repository": "c3lingo/c3t-pad-markdown",
 	"bugs": {
-		"url": "https://github.com/pbock/c3t-pad/issues"
+		"url": "https://github.com/c3lingo/c3t-pad-markdown/issues"
 	}
 }
