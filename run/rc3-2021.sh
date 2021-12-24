@@ -1,4 +1,4 @@
 #! /bin/sh
 
-./event.sh 'https://static.rc3.world/schedule/everything.xml' --room-list rc3-2021-rooms.txt
+./event.sh 'https://data.c3voc.de/rC3_21/everything.schedule.xml' --room-list rc3-2021-rooms.txt
 
