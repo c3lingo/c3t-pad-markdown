@@ -1,5 +1,5 @@
 node_modules/
 output/
-archive.zip
+archive*.zip
 *.lock
 *-lock.*
