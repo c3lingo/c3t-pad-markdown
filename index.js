@@ -70,8 +70,13 @@ streamToPromise(process.stdin)
 		}
 
 		days.forEach((day) => {
+			const events = day.events;
+			if (!events.length) {
+				return true;
+			}
+
 			// Events are grouped by language and sorted by time first, room second
-			const eventsByTime = _(day.events)
+			const eventsByTime = _(events)
 				.sortBy('room')
 				.sortBy('date')
 				.value()
