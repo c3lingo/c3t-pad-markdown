@@ -24,5 +24,5 @@ if [ -t 0 ]; then
 else
 	cat
 fi |
-NODE_PATH=../.. node c3t-pad-markdown ${1+"$@"}
+NODE_PATH=../.. node c3t-pad-markdown --no-file-drop ${1+"$@"}
 

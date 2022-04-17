@@ -26,12 +26,21 @@ program.version(packageJson.version)
 	.option('-o, --output-dir <dir>', 'Specify a different output directory', 'output/')
 	.option('-r, --rooms <list>', 'Restrict rooms processed to a comma-separated list', '')
 	.option('-R, --room-list <filename>', 'Take list of rooms to process from a line-separated file', '')
+	.option('-d, --file-drop <url>', 'URL prefix for the speakers’ file drop', 'https://speakers.c3lingo.org')
+	.option('-D, --no-file-drop', 'do not include file drop URLs')
 	.on('--help', logExamples)
 	.parse(process.argv);
 
 if (program.rooms && program.roomList) {
 	console.error('Please do not supply -r and -R at the same time.');
 	process.exit(1);
+}
+if (program.fileDrop && program.noFileDrop) {
+	console.error('Please do not supply -d and -D at the same time.');
+	process.exit(1);
+}
+if (program.noFileDrop) {
+	program.fileDrop = null;
 }
 if (program.rooms) {
 	program.rooms = program.rooms.split(',');
@@ -61,7 +70,7 @@ streamToPromise(process.stdin)
 			.maxBy(1)[0];
 
 		// Initialise the template
-		const dayTemplate = Template({ ignoreEventTypes: [ mostCommonEventType ], title, version, acronym, baseUrl });
+		const dayTemplate = Template({ ignoreEventTypes: [ mostCommonEventType ], fileDrop: program.fileDrop, title, version, acronym, baseUrl });
 
 		try {
 			fs.mkdirSync(program.outputDir);
