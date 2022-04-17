@@ -22,7 +22,7 @@ function logExamples() {
 }
 const packageJson = JSON.parse(fs.readFileSync(path.resolve(__dirname, 'package.json')));
 program.version(packageJson.version)
-	.description(`Turns conference schedule XML into HTML for translation angels' Etherpads`)
+	.description(`Turns conference schedule XML into Markdown for translation angels' pads`)
 	.option('-o, --output-dir <dir>', 'Specify a different output directory', 'output/')
 	.option('-r, --rooms <list>', 'Restrict rooms processed to a comma-separated list', '')
 	.option('-R, --room-list <filename>', 'Take list of rooms to process from a line-separated file', '')
